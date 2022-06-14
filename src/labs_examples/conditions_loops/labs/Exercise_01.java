@@ -1,5 +1,6 @@
 package labs_examples.conditions_loops.labs;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
