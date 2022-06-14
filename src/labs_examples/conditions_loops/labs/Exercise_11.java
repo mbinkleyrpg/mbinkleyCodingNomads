@@ -1,5 +1,7 @@
 package labs_examples.conditions_loops.labs;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 /**
  * Conditions and Loops Exercise 11: Nested for loop
  *
@@ -22,5 +24,18 @@ package labs_examples.conditions_loops.labs;
  */
 
 public class Exercise_11 {
+    public static void main(String[] args) {
+        int newLine = 0;
+        int value = 0;
 
-}
+        for(int row = 1; row <=10; row++){                  //outer loop is focused on 10 rows
+            for(int column = 1; column <= 10; column++){    //inner loop is focused on the 10 columns that will then go to next row
+                value = column * row;                       //multiply the column value by the row
+                System.out.print(value + "   | ");
+                if(column == 10)                           //once 10 columns have been printed, time to go to next line
+                    System.out.print("\n");
+                }
+            }
+        }
+    }
+

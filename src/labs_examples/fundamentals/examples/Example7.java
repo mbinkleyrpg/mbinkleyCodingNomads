@@ -11,8 +11,8 @@ class BlockDemo {
 
 //        i = 0; // will cause block to not execute
 //        j = 10;
-
-
+        boolean relationalResult = 20 == 20;
+        System.out.println("relationalResult is: " + relationalResult);
         // the target of this if is a block
         // code block used for two or more statements
         if(i != 0) {

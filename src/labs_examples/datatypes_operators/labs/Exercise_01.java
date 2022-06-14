@@ -16,8 +16,17 @@ public class Exercise_01 {
 
     public static void main(String[] args) {
 
-        // write code here
+        //declare and initialize
+        int myInt = 50_000;
+        double myDouble = 50_000.01;
+        float myFloat = 500.03f;
+        char myChar = 'c';
 
+        //print each variable
+        System.out.println("Int = " + myInt);
+        System.out.println("Double = " + myDouble);
+        System.out.println("Float = " + myFloat);
+        System.out.println("Char = " + myChar);
     }
 }
 

@@ -23,7 +23,15 @@ public class Exercise_02 {
 
     public static void main(String[] args) {
 
-        // write code here
+        //widening
+        int myInt = 10;
+        double myDouble = myInt;
+        System.out.println("The Double is: " + myDouble);
 
+        //narrowing
+        double newDouble = 10.5;
+        int newInt = (int) newDouble;
+        System.out.println("The Int is: " + newInt);
+        //the fractional part ("0.5") is lost in garbage collection
     }
 }
