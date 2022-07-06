@@ -1,6 +1,11 @@
 
 Without running the code below, please tell me what it will print.
 
+Answer: it will print "Child called", because the instance of 'c' is of type Parent but due
+to polymorphism will call the overridden method in Child, unlike in exercise 2 where a variable was called.
+You would need to call the super method inside of the overridden method "super.doSomething()" to also
+get the "Parent called" printed
+
 
 
 public class InheritanceTest

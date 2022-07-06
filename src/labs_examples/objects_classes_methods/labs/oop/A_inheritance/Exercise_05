@@ -1,6 +1,10 @@
 
 Without running the code below, please tell me what will print. Why?
-
+Answer: "Parent called \n Child called"
+When constructors are called, the parent class is called first and then the child class,
+so there is no need to call the super class within the child class constructor (well,
+no need to call the child constructor in the parent constructor since the parent is
+called first with constructors)
 
 
 
