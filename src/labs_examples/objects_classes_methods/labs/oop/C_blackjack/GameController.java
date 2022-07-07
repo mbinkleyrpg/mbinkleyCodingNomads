@@ -1,6 +1,5 @@
 package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
 
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,6 +8,24 @@ import java.util.Scanner;
  *
  */
 public class GameController extends Game implements GameBasics {
+    public static int getHumanWon() {
+        return humanWon;
+    }
+
+    public static void setHumanWon() {
+        GameController.humanWon++;
+    }
+
+    public static int getComputerWon() {
+        return computerWon;
+    }
+
+    public static void setComputerWon() {
+        GameController.computerWon++;
+    }
+
+    public static int humanWon = 0;
+    public static int computerWon = 0;
 
     /**
      * Method called StartGame to start the game
@@ -58,6 +75,7 @@ public class GameController extends Game implements GameBasics {
         } while (continuePlaying(humanPlayer, computerPlayer));
 
         System.out.println("Thanks for playing, you walk away $" + humanPlayer.getChipCount() + ".");
+        System.out.println("You played " + Deck.getDeckReshuffled() + " hands.");
     }
 
     /**
@@ -119,15 +137,22 @@ public class GameController extends Game implements GameBasics {
 
         // if loop for human player to decide
         if(!player.getPlayerName().equalsIgnoreCase("Computer")){
-            System.out.println("Your hand score is " + currentScore + "\nDo you want another card?  'y' for yes and 'n' for no");
-            String response = scanner.next();
-
-            // if loop to process the decision
-            if (response.equalsIgnoreCase("y")){
-                return true;
-            } else {
+            if(currentScore > 21){
                 return false;
             }
+            else{
+                System.out.println("Your hand score is " + currentScore + "\nDo you want another card?  'y' for yes and 'n' for no");
+                String response = scanner.next();
+
+                // if loop to process the decision
+                if (response.equalsIgnoreCase("y")){
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+
         } else {                                //else statement for automated computer decision
             if (currentScore <= 17){
                 return true;
@@ -204,28 +229,33 @@ public class GameController extends Game implements GameBasics {
         String result = "";
 
         //if and else loops for setting the result and either adding or subtracting to player chip balance
-        if (computerScore == 21 && userScore == 21){
-            result = "Tie!  You had 21 and the computer had ";
+        if (computerScore == userScore ){
+            result = "Tie!  You and the computer both had ";
             humanPlayer.setChipCount(humanPlayer.getChipCount() - (humanPlayer.getBet() / 2));
             printUserChipBalance(humanPlayer);
         } else if (computerScore == 21){
             result = "You lose because the computer hit perfectly at ";
+            setComputerWon();
             humanPlayer.setChipCount(humanPlayer.getChipCount() - humanPlayer.getBet());
             printUserChipBalance(humanPlayer);
         } else if (userScore > 21) {
             result = "You lose because you busted and the computer had only ";
+            setComputerWon();
             humanPlayer.setChipCount(humanPlayer.getChipCount() - humanPlayer.getBet());
             printUserChipBalance(humanPlayer);
         } else if (computerScore > 21) {
             result = "You win because the computer went over 21 with ";
+            setHumanWon();
             humanPlayer.setChipCount(humanPlayer.getChipCount() + (humanPlayer.getBet() * 3));
             printUserChipBalance(humanPlayer);
         } else if (userDiff < computerDiff){
             result = "You win because you were closer to 21 and the computer had only ";
+            setHumanWon();
             humanPlayer.setChipCount(humanPlayer.getChipCount() + (humanPlayer.getBet() * 3));
             printUserChipBalance(humanPlayer);
         } else if (userDiff > computerDiff && computerDiff >= 0){
             result = "You lose because the computer was closer to 21 with ";
+            setComputerWon();
             humanPlayer.setChipCount(humanPlayer.getChipCount() - humanPlayer.getBet());
             printUserChipBalance(humanPlayer);
         }
