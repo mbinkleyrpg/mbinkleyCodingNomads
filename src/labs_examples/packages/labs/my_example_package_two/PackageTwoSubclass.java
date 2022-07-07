@@ -21,5 +21,4 @@ public class PackageTwoSubclass extends PackageOneClass {
         System.out.println("Leaving package two subclass' public");
 
     }
-
 }

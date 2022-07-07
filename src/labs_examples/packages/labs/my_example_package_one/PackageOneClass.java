@@ -27,8 +27,4 @@ public class PackageOneClass {
      public static void packageOnePublic(){
          System.out.println("I'm in package one's public");
      }
-
-
-
-
 }

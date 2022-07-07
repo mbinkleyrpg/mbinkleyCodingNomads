@@ -18,5 +18,4 @@ public class PackageTwoClass {
         //PackageOneClass.packageOneProtected();      //cannot do because the current class we are in isn't a subclass of PackageOneClass
         System.out.println("Leaving package two's public");
     }
-
 }
