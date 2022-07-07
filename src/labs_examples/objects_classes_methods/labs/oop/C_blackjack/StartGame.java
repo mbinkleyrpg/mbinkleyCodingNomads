@@ -14,6 +14,9 @@ public class StartGame {
         //create and start a game of Blackjack
         GameController game = new GameController();
         game.play();
+        System.out.println("You won " + game.getHumanWon() + " hands.");
+        System.out.println("The computer won " + game.getComputerWon() + " hands.");
+
 
     }
 }
