@@ -15,7 +15,6 @@ public class IncrementWorkerOne implements Runnable {
                 try {
                     document.editDocument(threadName);
                     Thread.sleep(200);
-                    System.out.println("");
                 } catch (InterruptedException ie) {
                     Thread.currentThread().interrupt();
                     System.out.println("Thread interrupted" + ie);

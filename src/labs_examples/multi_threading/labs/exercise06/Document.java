@@ -21,19 +21,11 @@ public class Document {
     }
 
     public synchronized  String editDocument(String threadName){
-        while(documentIsLocked){
+        //while(documentIsLocked){
             System.out.println("In " + threadName);
             counter++;
             System.out.println("Counter = " + counter);
-            try{
-                wait();
-            }catch(InterruptedException ie){
-                Thread.currentThread().interrupt();
-                System.out.println("Well this is awkward..");
-            }
-        }
-        documentIsLocked = true;
-        notifyAll();
+
         return newDocument;
     }
 
